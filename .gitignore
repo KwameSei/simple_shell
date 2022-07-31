@@ -1,0 +1,5 @@
+#VI
+*.swp
+
+*.o
+simple_shell

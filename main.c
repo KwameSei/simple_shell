@@ -11,6 +11,7 @@ int read_input(void);
 int main(int argc, char **argv)
 {
 	read_input();
+	char *str_token();
 
 	return (0);
 }
