@@ -3,6 +3,12 @@
 #include <string.h>
 #include "main.h"
 
+/**
+ * type_prompt - function that types prompt and reads input
+ *
+ * Return: input read
+ */
+
 #define PRMTSIZ 255
 
 int type_prompt()
@@ -14,8 +20,7 @@ int type_prompt()
 
 	// prompt
 	printf("%s", getuid() == 0 ? "$" : "#cisfun$");
-	fgets(input, PRMTSIZ, stdin);
+	fgets(ptr, PRMTSIZ, stdin);
 	}
-	return (0);
 }
 
