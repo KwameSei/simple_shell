@@ -4,6 +4,11 @@
 #include <sys/wait.h>
 #include <stdio.h>
 
+/**
+ * start_program - function that creates child process
+ *@args: arguments passed
+ *Return: 1
+ */
 int start_program(char **args)
 {
 	pid_t pid;
@@ -13,7 +18,7 @@ int start_program(char **args)
 	if (pid == 0)
 	{
 		int val = execve(args[0], args, NULL);
-		
+
 		if (val == -1)
 			perror("Error starting");
 	}
