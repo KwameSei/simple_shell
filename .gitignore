@@ -1,5 +1,9 @@
 #VI
 *.swp
+*.swo
+*.swn
+*.h~
 
 *.o
 simple_shell
+shell
