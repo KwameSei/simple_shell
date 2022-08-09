@@ -7,13 +7,13 @@
 #include <stdio.h>
 #include <string.h>
 
+#define DELIM "\n \t "
+#define MAXARG 20
+
 /**
  * bg_job - function that tokenises and executes the commands and arguments
  * @cmdline: pointer to the input to be tokenised
  */
-#define DELIM "\n \t"
-#define MAXARG 20
-
 void bg_job(char *cmdline)
 {
 	char *token[MAXARG]; /*Creating argument array*/
@@ -21,8 +21,8 @@ void bg_job(char *cmdline)
 	int count = 0, bground = 0;
 
 	token[count++] = strtok(cmdline, DELIM);
-	while (count < MAXARG && (token[count++] = strtok(NULL, DELIM)) != NULL);
-
+	while (count < MAXARG && (token[count++] = strtok(NULL, DELIM)) != NULL)
+		;
 	child_id = fork();
 	if (child_id == 0)	/*Child executes background job*/
 	{
