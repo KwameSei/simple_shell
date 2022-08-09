@@ -9,10 +9,16 @@
 
 #define MAX_LINE 80
 
+/**
+ * read_command - function thats reads input from the terminal
+ *
+ * Return: line read
+ */
 int read_command(void)
 {
 
 	char cmd[MAX_LINE];
+
 	void bg_job(char *cmdline);
 
 	fgets(cmd, MAX_LINE, stdin);
@@ -21,7 +27,7 @@ int read_command(void)
 
 
 	if (strcmp(cmd, "exit\n") == 0)
-		return EXIT_SUCCESS;
+		return (EXIT_SUCCESS);
 
-	return EXIT_FAILURE;
+	return (EXIT_FAILURE);
 }
