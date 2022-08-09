@@ -1,7 +1,12 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-int read_input(void);
-char *str_token();
+void program_loop(void);
+void prompt(void);
+/*char **line_into_args();*/
+int read_command(void);
+int start_program(char **args);
+void bg_job(char *cmdline);
+/*void execute(void);*/
 
-#endif
+#endif /** MAIN_H */
