@@ -23,6 +23,13 @@ int read_command(void)
 
 	fgets(cmd, MAX_LINE, stdin);
 
+	/*Handling the "end of file" condition (Ctrl+D)*/
+	if (feof(stdin))
+	{
+		printf("\n");
+		exit(0);
+	}
+	/*Handling the background job or process*/
 	bg_job(cmd);
 
 
