@@ -1,8 +1,8 @@
 .PHONY: all
 all : main
 
-main : main.o program_loop.o prompt.o line_into_args.o execute.o start_program.o background.o
-	gcc -Wall -pedantic -Werror -Wextra -std=gnu89 main.o program_loop.o prompt.o line_into_args.o execute.o start_program.o background.o -o shell
+main : main.o program_loop.o prompt.o line_into_args.o start_program.o background.o
+	gcc -Wall -pedantic -Werror -Wextra -std=gnu89 main.o program_loop.o prompt.o line_into_args.o start_program.o background.o -o shell
 
 main.o : main.c main.h
 	gcc -Wall -pedantic -Werror -Wextra -std=gnu89 -c main.c -o main.o
@@ -21,9 +21,6 @@ start_program.o : start_program.c main.h
 
 background.o : background.c main.h
 	gcc -Wall -pedantic -Werror -Wextra -std=gnu89 -c background.c -o background.o
-
-/*execute.o : execute.c main.h
-	gcc -Wall -pedantic -Werror -Wextra -std=gnu89 -c execute.c -o execute.o */
 
 .PHONY: clean
 clean: rm -f *.o main *.swp *~
