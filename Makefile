@@ -25,5 +25,5 @@ background.o : background.c main.h
 /*execute.o : execute.c main.h
 	gcc -Wall -pedantic -Werror -Wextra -std=gnu89 -c execute.c -o execute.o */
 
-.PHONY: clean 
+.PHONY: clean
 clean: rm -f *.o main *.swp *~
