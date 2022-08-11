@@ -46,6 +46,7 @@ void bg_job(char *cmdline)
 	if (!bground)
 	{
 		int status;
+
 		if (waitpid(child_id, &status, 0) < 0)
 			perror("waitfg: waitpid error");
 	}
