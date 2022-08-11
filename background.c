@@ -24,19 +24,11 @@ void bg_job(char *cmdline)
 	while (count < MAXARG && (token[count++] = strtok(NULL, DELIM)) != NULL)
 		;
 	child_id = fork();
-	if (child_id == 0)	/*Child executes background job*/
+	if (child_id == 0)
 	{
-		if (execvp(token[0], token) >= 0)
-		{
-			perror("./shell");
-			_exit(EXIT_FAILURE);/*execv failed*/
-		}
-		else
-		{
-			execv(token[0], token);
-			perror("./shell");
-			exit(1);
-		}
+		execv(token[0], token);
+		perror("./shell");
+		exit(1);
 	}
 	if (child_id < 0)
 	{
