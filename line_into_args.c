@@ -22,11 +22,7 @@ int read_command(void)
 	void bg_job(char *cmdline);
 
 	fgets(cmd, MAX_LINE, stdin);
-	if (feof(stdin))
-	{
-		printf("\n");
-		exit(0);
-	}
+
 	bg_job(cmd);
 
 	if (strcmp(cmd, "exit\n") == 0)
