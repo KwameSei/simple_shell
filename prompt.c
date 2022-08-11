@@ -6,5 +6,5 @@
  */
 void prompt(void)
 {
-	printf("#cisfun$ ");
+	printf("#cisfun$ \n");
 }
