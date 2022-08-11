@@ -22,21 +22,16 @@ int read_command(void)
 	void bg_job(char *cmdline);
 
 	fgets(cmd, MAX_LINE, stdin);
-
-	/*Handling the "end of file" condition (Ctrl+D)*/
-	/*
-	* if (feof(stdin))
-	* {
-	*	printf("\n");
-	*	exit(0);
-	* }
-	*/
-	/*Handling the background job or process*/
+	if (feof(stdin))
+	{
+		printf("\n");
+		exit(0);
+	}
 	bg_job(cmd);
 
-
 	if (strcmp(cmd, "exit\n") == 0)
+	{
 		return (EXIT_SUCCESS);
-
+	}
 	return (EXIT_FAILURE);
 }
