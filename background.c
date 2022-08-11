@@ -26,27 +26,29 @@ void bg_job(char *cmdline)
 	child_id = fork();
 	if (child_id == 0)	/*Child executes background job*/
 	{
-		if (execv(token[0], token) < 0)
+		if (execvp(token[0], token) >= 0)
 		{
-			printf("./shell: No such file or directory\n");
+			perror("./shell");
 			_exit(EXIT_FAILURE);/*execv failed*/
 		}
+		else
+		{
+			execv(token[0], token);
+			perror("./shell");
+			exit(1);
+		}
 	}
-
 	if (child_id < 0)
 	{
 		fprintf(stderr, "duplicate process failed\n");
 		perror("background process failed");
 	}
-
 	if (!bground)
 	{
 		int status;
-
 		if (waitpid(child_id, &status, 0) < 0)
 			perror("waitfg: waitpid error");
 	}
 	else
 		printf("%d %s", child_id, cmdline);
-
 }
