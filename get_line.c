@@ -1,13 +1,7 @@
 #include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include <stddef.h>
-#include <string.h>
-#include <unistd.h>
-#include <sys/types.h>
-#include <sys/wait.h>
 
-#define MAX_LINE 80
 
 /**
  * read_command - function thats reads input from the terminal
@@ -17,17 +11,17 @@
 int read_command(void)
 {
 
-	char cmd[MAX_LINE];
+	void bg_job(char *cmdLine);
 
-	void bg_job(char *cmdline);
+	char *cmd = NULL;
+	size_t bufsize = 0;
 
-	fgets(cmd, MAX_LINE, stdin);
+	getline(&cmd, &bufsize, stdin);
 
 	bg_job(cmd);
 
 	if (strcmp(cmd, "exit\n") == 0)
-	{
 		return (EXIT_SUCCESS);
-	}
+
 	return (EXIT_FAILURE);
 }
