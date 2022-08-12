@@ -23,6 +23,7 @@ void bg_job(char *cmdline)
 	token[count++] = strtok(cmdline, DELIM);
 	while (count < MAXARG && (token[count++] = strtok(NULL, DELIM)) != NULL)
 		;
+
 	child_id = fork();
 	if (child_id == 0)	/*Child executes background job*/
 	{
