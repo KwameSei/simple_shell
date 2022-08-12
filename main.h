@@ -7,6 +7,5 @@ void prompt(void);
 int read_command(void);
 int start_program(char **args);
 void bg_job(char *cmdline);
-/*void execute(void);*/
 
 #endif /** MAIN_H */
